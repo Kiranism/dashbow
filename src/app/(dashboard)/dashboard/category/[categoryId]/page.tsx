@@ -11,15 +11,15 @@ export default async function ProductAddPage({
 }) {
   console.log(params);
 
-  let formattedCategory;
+  let category;
   if (mongoose.isValidObjectId(params.categoryId)) {
-    const category = await Category.findById(params.categoryId);
-    formattedCategory = {
-      id: category._id,
-      name: category.name,
-      description: category.description,
-    } as CategoryCol;
+    category = await Category.findById(params.categoryId);
   }
+  const formattedCategory: CategoryCol = {
+    id: category._id,
+    name: category.name,
+    description: category.description,
+  };
 
   return (
     <div className="flex-col">

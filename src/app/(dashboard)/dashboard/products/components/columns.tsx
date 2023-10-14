@@ -15,7 +15,7 @@ export type ProductCol = {
 
 export const columns: ColumnDef<ProductCol>[] = [
   {
-    accessorKey: "id",
+    accessorKey: "_id",
     header: "id",
   },
   {

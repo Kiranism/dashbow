@@ -22,17 +22,7 @@ export const metadata: Metadata = {
   title: "Dashboard",
   description: "Example dashboard app built using the components.",
 };
-
-const menu = [
-  {
-    title: "Users",
-    href: "/users",
-  },
-  {
-    title: "Products",
-    href: "/products",
-  },
-];
+export const dynamic = "force-dynamic";
 
 dbConnect();
 

@@ -18,21 +18,11 @@ import Category from "@/db/models/categoryModel";
 import { dbConnect } from "@/db/dbConfig";
 import { ProductsClient } from "./components/client";
 
+export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Dashboard",
   description: "Example dashboard app built using the components.",
 };
-
-const menu = [
-  {
-    title: "Users",
-    href: "/users",
-  },
-  {
-    title: "Products",
-    href: "/products",
-  },
-];
 
 dbConnect();
 

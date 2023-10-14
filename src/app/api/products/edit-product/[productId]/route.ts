@@ -4,8 +4,6 @@ import Product from "@/db/models/productModel";
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
-export const dynamic = "edge";
-
 dbConnect();
 
 export async function POST(

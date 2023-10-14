@@ -29,7 +29,7 @@ export default function DashboardLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="hidden flex-col md:flex">
+        <div className="flex-col md:flex">
           <div className="border-b">
             <div className="flex h-16 items-center px-4">
               <MainNav items={menu} />

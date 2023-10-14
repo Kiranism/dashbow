@@ -33,11 +33,15 @@ import { ProductCol } from "../../components/columns";
 import FileUpload from "@/components/FileUpload";
 
 const formSchema = z.object({
-  name: z.string().min(1),
-  imgUrl: z.string(),
-  description: z.string(),
+  name: z
+    .string()
+    .min(3, { message: "Product Name must be at least 3 characters" }),
+  imgUrl: z.string().min(3, { message: "Please select an image" }),
+  description: z
+    .string()
+    .min(3, { message: "Product description must be at least 3 characters" }),
   price: z.coerce.number(),
-  category: z.string(),
+  category: z.string().min(1, { message: "Please select a category" }),
 });
 
 type ProductFormValues = z.infer<typeof formSchema>;
@@ -56,7 +60,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [imgLoading, setImgLoading] = useState(false);
   const title = initialData ? "Edit product" : "Create product";
   const description = initialData ? "Edit a product." : "Add a new product";
   const toastMessage = initialData ? "Product updated." : "Product created.";
@@ -81,7 +85,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     try {
       setLoading(true);
       if (initialData) {
-        await axios.post(`/api/products/create-product`, data);
+        await axios.post(`/api/products/edit-product/${initialData._id}`, data);
       } else {
         const res = await axios.post(`/api/products/create-product`, data);
 

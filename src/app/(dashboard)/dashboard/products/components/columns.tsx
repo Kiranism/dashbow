@@ -5,7 +5,7 @@ import { CellAction } from "./cell-action";
 import Image from "next/image";
 
 export type ProductCol = {
-  id: string;
+  _id: string;
   name: string;
   category: string;
   imgUrl: string;

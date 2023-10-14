@@ -14,17 +14,13 @@ export default async function ProductAddPage({
   let category;
   if (mongoose.isValidObjectId(params.categoryId)) {
     category = await Category.findById(params.categoryId);
+    console.log(category);
   }
-  const formattedCategory: CategoryCol = {
-    id: category._id,
-    name: category.name,
-    description: category.description,
-  };
 
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
-        <CategoryForm initialData={formattedCategory} />
+        <CategoryForm initialData={category} />
       </div>
     </div>
   );

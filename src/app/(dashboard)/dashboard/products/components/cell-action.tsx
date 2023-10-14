@@ -30,7 +30,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/products/edit-product/${data.id}`);
+      await axios.delete(`/api/products/edit-product/${data._id}`);
       toast.success("Product deleted.");
       router.refresh();
     } catch (error) {
@@ -60,7 +60,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
 
           <DropdownMenuItem
-            onClick={() => router.push(`/dashboard/products/${data.id}`)}
+            onClick={() => router.push(`/dashboard/products/${data._id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

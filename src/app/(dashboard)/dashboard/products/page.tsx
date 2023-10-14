@@ -31,7 +31,7 @@ export default async function ProductPage() {
   console.log(data);
 
   const formattedProducts: ProductCol[] = data.map((item) => ({
-    id: String(item._id),
+    _id: String(item._id),
     name: item.name,
     category: String(item.category),
     price: item.price,

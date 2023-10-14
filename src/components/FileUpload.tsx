@@ -24,7 +24,6 @@ export default function FileUpload({
   value,
 }: ImageUploadProps) {
   const router = useRouter();
-  const [uploading, setUploading] = useState(false);
   console.log("value=>", value);
 
   return (
